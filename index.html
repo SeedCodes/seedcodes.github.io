@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SeedCodes — Builder's Command Center</title>
+  <title>SeedCodes — Digital Operating Interface</title>
   <meta name="description"
-    content="Digital operating system for a builder working on AI systems, automation, and future technology projects." />
+    content="Personal operating system for a builder working on AI, automation, and future technology." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -20,7 +20,10 @@
   <!-- Navbar -->
   <nav class="navbar" id="navbar">
     <div class="nav-inner">
-      <a href="#" class="nav-logo">SeedCodes<span class="accent">.</span></a>
+      <a href="#" class="nav-logo">
+        <span class="logo-mark"></span>
+        SeedCodes
+      </a>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
@@ -36,41 +39,40 @@
 
   <!-- Hero -->
   <section class="hero" id="hero">
-    <div class="container">
-      <div class="hero-badge">Command Center</div>
+    <div class="hero-bg"></div>
+    <div class="container hero-content">
+      <div class="hero-badge">DIGITAL OPERATING INTERFACE</div>
       <h1 class="hero-title">SeedCodes</h1>
-      <p class="hero-subtitle">
-        Building AI systems and futuristic digital projects.
-      </p>
-      <a href="#projects" class="btn btn-primary">View Projects</a>
+      <p class="hero-subtitle">Building AI systems, automation pipelines, and futuristic digital projects.</p>
+      <a href="#projects" class="btn btn-primary">
+        <span class="btn-dot"></span>
+        View Projects
+      </a>
     </div>
   </section>
 
   <!-- System Status Bar -->
-  <section class="status-bar" id="status">
+  <div class="system-bar" id="systemBar">
     <div class="container">
-      <div class="status-row" id="statusRow">
-        <!-- rendered by JS -->
-      </div>
+      <div class="system-bar-inner" id="statusRow"></div>
     </div>
-  </section>
+  </div>
 
-  <!-- NOW Section -->
+  <!-- NOW Panel -->
   <section class="section" id="now">
     <div class="container">
       <div class="section-header">
-        <span class="section-label">// LIVE STATUS</span>
+        <span class="section-tag">// ACTIVE PROCESS</span>
         <h2 class="section-title">Now</h2>
       </div>
       <div class="now-grid">
-        <div class="now-card">
-          <h3 class="now-card-title">Currently Building</h3>
-          <ul class="now-list" id="nowBuilding">
-            <!-- rendered by JS -->
-          </ul>
+        <div class="glass-card now-card now-card-active">
+          <div class="card-glow"></div>
+          <h3 class="now-card-label">Currently Building</h3>
+          <ul class="now-list" id="nowBuilding"></ul>
         </div>
-        <div class="now-card now-card-focus">
-          <h3 class="now-card-title">Current Focus</h3>
+        <div class="glass-card now-card">
+          <h3 class="now-card-label">Current Focus</h3>
           <p class="now-focus-text">Shipping the SeedCodes ecosystem — building personal AI tools, learning Unity
             foundations, and creating systems that compound over time.</p>
         </div>
@@ -79,64 +81,60 @@
   </section>
 
   <!-- Next Action -->
-  <section class="next-action-bar" id="nextAction">
+  <div class="next-action" id="nextAction">
     <div class="container">
       <div class="next-action-inner">
+        <span class="next-action-indicator"></span>
         <span class="next-action-label">Next Action →</span>
-        <span class="next-action-text" id="nextActionText">Improve project dashboard layout and finalize Buddy-X core
-          loop.</span>
+        <span class="next-action-text">Improve project dashboard layout and finalize Buddy-X core loop.</span>
       </div>
     </div>
-  </section>
+  </div>
 
   <!-- Mission -->
   <section class="section" id="mission">
     <div class="container">
       <div class="section-header">
-        <span class="section-label">// PURPOSE</span>
+        <span class="section-tag">// DIRECTIVE</span>
         <h2 class="section-title">Mission</h2>
       </div>
-      <p class="mission-text">Build personal AI infrastructure and digital systems that amplify human capability. Ship
-        meaningful products. Think long-term, execute daily.</p>
+      <div class="glass-card mission-card">
+        <p class="mission-text">Build personal AI infrastructure and digital systems that amplify human capability. Ship
+          meaningful products. Think long-term, execute daily.</p>
+      </div>
     </div>
   </section>
 
-  <!-- Ecosystem Map -->
-  <section class="section section-alt" id="ecosystem">
+  <!-- Ecosystem -->
+  <section class="section" id="ecosystem">
     <div class="container">
       <div class="section-header">
-        <span class="section-label">// ARCHITECTURE</span>
-        <h2 class="section-title">Ecosystem Map</h2>
+        <span class="section-tag">// SYSTEM ARCHITECTURE</span>
+        <h2 class="section-title">Ecosystem</h2>
       </div>
-      <div class="ecosystem-tree" id="ecosystemTree">
-        <!-- rendered by JS -->
-      </div>
+      <div class="glass-card ecosystem-card" id="ecosystemTree"></div>
     </div>
   </section>
 
-  <!-- Projects Dashboard -->
+  <!-- Projects -->
   <section class="section" id="projects">
     <div class="container">
       <div class="section-header">
-        <span class="section-label">// DASHBOARD</span>
+        <span class="section-tag">// PROJECT DASHBOARD</span>
         <h2 class="section-title">Projects</h2>
       </div>
-      <div class="projects-grid" id="projectsGrid">
-        <!-- rendered by JS -->
-      </div>
+      <div class="projects-grid" id="projectsGrid"></div>
     </div>
   </section>
 
   <!-- Timeline -->
-  <section class="section section-alt" id="timeline">
+  <section class="section" id="timeline">
     <div class="container">
       <div class="section-header">
-        <span class="section-label">// EVOLUTION</span>
+        <span class="section-tag">// EVOLUTION</span>
         <h2 class="section-title">Timeline</h2>
       </div>
-      <div class="timeline" id="timelineList">
-        <!-- rendered by JS -->
-      </div>
+      <div class="timeline" id="timelineList"></div>
     </div>
   </section>
 
@@ -144,33 +142,31 @@
   <section class="section" id="about">
     <div class="container">
       <div class="section-header">
-        <span class="section-label">// SYSTEM OUTPUT</span>
+        <span class="section-tag">// SYSTEM OUTPUT</span>
         <h2 class="section-title">About</h2>
       </div>
-      <div class="terminal" id="terminal">
-        <div class="terminal-header">
-          <span class="terminal-dot dot-red"></span>
-          <span class="terminal-dot dot-yellow"></span>
-          <span class="terminal-dot dot-green"></span>
-          <span class="terminal-title">profile.sh</span>
+      <div class="terminal">
+        <div class="terminal-chrome">
+          <span class="term-dot term-red"></span>
+          <span class="term-dot term-yellow"></span>
+          <span class="term-dot term-green"></span>
+          <span class="terminal-file">profile.sh</span>
         </div>
-        <div class="terminal-body" id="terminalBody">
-          <!-- rendered by JS -->
-        </div>
+        <div class="terminal-body" id="terminalBody"></div>
       </div>
     </div>
   </section>
 
   <!-- Build Log -->
-  <section class="section section-alt" id="buildlog">
+  <section class="section" id="buildlog">
     <div class="container">
       <div class="section-header">
-        <span class="section-label">// CHANGELOG</span>
+        <span class="section-tag">// SYSTEM LOG</span>
         <h2 class="section-title">Build Log</h2>
       </div>
-      <ul class="build-log" id="buildLog">
-        <!-- rendered by JS -->
-      </ul>
+      <div class="glass-card buildlog-card">
+        <ul class="build-log" id="buildLog"></ul>
+      </div>
     </div>
   </section>
 
@@ -178,19 +174,17 @@
   <section class="section" id="contact">
     <div class="container">
       <div class="section-header">
-        <span class="section-label">// CONNECT</span>
+        <span class="section-tag">// CONNECT</span>
         <h2 class="section-title">Contact</h2>
       </div>
-      <div class="contact-links" id="contactLinks">
-        <!-- rendered by JS -->
-      </div>
+      <div class="contact-links" id="contactLinks"></div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p>© 2026 SeedCodes. Built from scratch.</p>
+      <p>© 2026 SeedCodes. Engineered from scratch.</p>
     </div>
   </footer>
 

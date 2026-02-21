@@ -1,13 +1,12 @@
 // ============================================
-// DATA — All site content lives here.
-// Edit this file to update content without
-// touching rendering logic.
+// DATA — Edit content here.
 // ============================================
 
-export const statusItems = [
+export const systemStatus = [
   { label: 'STATUS', value: 'ACTIVE', dot: true },
-  { label: 'MODE', value: 'LEARNING + BUILDING' },
-  { label: 'FOCUS', value: 'EXECUTION' },
+  { label: 'MODE', value: 'BUILDING' },
+  { label: 'CURRENT FOCUS', value: 'EXECUTION' },
+  { label: 'LAST UPDATE', value: 'FEB 2026' },
 ];
 
 export const nowBuilding = [
@@ -17,11 +16,11 @@ export const nowBuilding = [
 ];
 
 export const ecosystem = {
-  root: 'SeedCodes (Core Vision)',
+  root: 'SeedCodes (Core)',
   branches: [
-    { name: 'Buddy-X', desc: 'Personal AI' },
-    { name: 'DreamForge', desc: 'Creative Team' },
-    { name: 'Ascend', desc: 'Game Project' },
+    { name: 'Buddy-X', desc: 'AI' },
+    { name: 'DreamForge', desc: 'Team' },
+    { name: 'Ascend', desc: 'Game' },
     { name: 'Automation Lab', desc: 'Experiments' },
   ],
 };
@@ -29,31 +28,31 @@ export const ecosystem = {
 export const projects = [
   {
     name: 'Buddy-X',
-    description: 'Personal AI assistant with real-world context awareness and task orchestration.',
+    description: 'Personal AI assistant with context awareness and task orchestration.',
     stack: ['Python', 'LLM', 'Automation'],
     status: 'active',
   },
   {
     name: 'Ascend – Path of Elements',
-    description: 'Action RPG in Unity with elemental combat and procedural progression.',
+    description: 'Action RPG in Unity with elemental combat and progression.',
     stack: ['Unity', 'C#', 'Game Design'],
     status: 'building',
   },
   {
     name: 'DreamForge',
-    description: 'Team identity and brand system for collaborative product development.',
+    description: 'Team identity and brand system for collaborative development.',
     stack: ['Branding', 'Design'],
     status: 'paused',
   },
   {
     name: 'SeedCodes Vision',
-    description: 'Future company — a venture for shipping meaningful digital products at scale.',
+    description: 'Future venture for shipping meaningful digital products at scale.',
     stack: ['Strategy', 'Product'],
     status: 'research',
   },
   {
     name: 'Automation Experiments',
-    description: 'Workflow automation using n8n and custom scripts to eliminate friction.',
+    description: 'Workflow automation with n8n and scripts to eliminate friction.',
     stack: ['n8n', 'APIs', 'Scripting'],
     status: 'building',
   },
@@ -62,22 +61,22 @@ export const projects = [
 export const timelineEntries = [
   { year: '2025', text: 'Learning & exploration — programming, AI fundamentals, game dev basics.' },
   { year: '2026', text: 'Building systems — personal AI, automation pipelines, shipping projects.' },
-  { year: 'Future', text: 'Expanding the SeedCodes ecosystem into a full product studio.' },
+  { year: 'Future', text: 'Expanding SeedCodes into a full product ecosystem.' },
 ];
 
 export const terminalLines = [
-  { type: 'command', text: 'initializing profile...' },
-  { type: 'data', key: 'Role', value: 'Builder / Developer' },
-  { type: 'data', key: 'Focus', value: 'AI Systems, Automation, Game Development' },
-  { type: 'data', key: 'Stack', value: 'Python, JS, C#, Unity, n8n' },
-  { type: 'data', key: 'Status', value: 'Online' },
-  { type: 'command', text: 'ready.' },
+  { type: 'cmd', text: 'initializing profile...' },
+  { type: 'kv', key: 'Role', value: 'Builder / Developer' },
+  { type: 'kv', key: 'Focus', value: 'AI Systems, Automation, Game Development' },
+  { type: 'kv', key: 'Stack', value: 'Python, JS, C#, Unity, n8n' },
+  { type: 'kv', key: 'Status', value: 'Online' },
+  { type: 'cmd', text: 'ready.' },
 ];
 
 export const buildLog = [
-  { date: 'Feb 2026', text: 'Launched SeedCodes command center website.' },
-  { date: 'Feb 2026', text: 'Started Buddy-X AI assistant core development.' },
-  { date: 'Jan 2026', text: 'Began Unity foundations for Ascend game prototype.' },
+  { date: 'Feb 2026', text: 'Launched SeedCodes digital operating interface.' },
+  { date: 'Feb 2026', text: 'Started Buddy-X AI core development.' },
+  { date: 'Jan 2026', text: 'Began Unity foundations for Ascend prototype.' },
   { date: 'Dec 2025', text: 'Set up n8n automation experiments pipeline.' },
 ];
 
