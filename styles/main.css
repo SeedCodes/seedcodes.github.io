@@ -404,6 +404,7 @@ ul {
   object-fit: contain;
   margin: 0 auto 2rem;
   border: none;
+  border-radius: 50%;
 }
 
 .hero-badge {
