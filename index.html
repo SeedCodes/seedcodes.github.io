@@ -6,187 +6,209 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SeedCodes — Digital Operating Interface</title>
   <meta name="description"
-    content="Personal operating system for a builder working on AI, automation, and future technology." />
+    content="Next-generation digital operating interface for a builder working on AI, automation, and future technology." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="styles/main.css" />
 </head>
 
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar" id="navbar">
-    <div class="nav-inner">
-      <a href="#" class="nav-logo">
-        <span class="logo-mark"></span>
-        SeedCodes
-      </a>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#now">Now</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#ecosystem">Ecosystem</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+  <!-- =================== BOOT INTRO =================== -->
+  <div class="boot-overlay" id="bootOverlay">
+    <canvas id="bootParticles"></canvas>
+    <div class="boot-content">
+      <div class="boot-terminal" id="bootTerminal"></div>
+      <div class="boot-logo" id="bootLogo">SEEDCODES</div>
+      <div class="boot-status" id="bootStatus">ONLINE</div>
     </div>
-  </nav>
-
-  <!-- Hero -->
-  <section class="hero" id="hero">
-    <div class="hero-bg"></div>
-    <div class="container hero-content">
-      <div class="hero-badge">DIGITAL OPERATING INTERFACE</div>
-      <h1 class="hero-title">SeedCodes</h1>
-      <p class="hero-subtitle">Building AI systems, automation pipelines, and futuristic digital projects.</p>
-      <a href="#projects" class="btn btn-primary">
-        <span class="btn-dot"></span>
-        View Projects
-      </a>
-    </div>
-  </section>
-
-  <!-- System Status Bar -->
-  <div class="system-bar" id="systemBar">
-    <div class="container">
-      <div class="system-bar-inner" id="statusRow"></div>
-    </div>
+    <button class="boot-skip" id="bootSkip">SKIP ▸</button>
   </div>
 
-  <!-- NOW Panel -->
-  <section class="section" id="now">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">// ACTIVE PROCESS</span>
-        <h2 class="section-title">Now</h2>
+  <!-- =================== MAIN SITE =================== -->
+  <div class="site-wrapper" id="siteWrapper">
+
+    <!-- Background -->
+    <canvas id="bgCanvas"></canvas>
+    <div class="bg-gradient"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-inner">
+        <a href="#" class="nav-logo">
+          <span class="logo-dot"></span>
+          SeedCodes
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#now">Now</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#ecosystem">Ecosystem</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
       </div>
-      <div class="now-grid">
-        <div class="glass-card now-card now-card-active">
-          <div class="card-glow"></div>
-          <h3 class="now-card-label">Currently Building</h3>
-          <ul class="now-list" id="nowBuilding"></ul>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+      <div class="container hero-content">
+        <div class="hero-badge reveal">DIGITAL OPERATING INTERFACE</div>
+        <h1 class="hero-title reveal" data-delay="100">
+          <span class="hero-glow-text">SeedCodes</span>
+        </h1>
+        <p class="hero-subtitle reveal" data-delay="200">Building AI systems, automation infrastructure, and the future
+          of digital products.</p>
+        <a href="#projects" class="btn btn-primary reveal" data-delay="300">
+          <span class="btn-pulse"></span>
+          View Projects
+        </a>
+      </div>
+    </section>
+
+    <!-- System Status -->
+    <div class="system-bar" id="systemBar">
+      <div class="container">
+        <div class="system-bar-inner" id="statusRow"></div>
+      </div>
+    </div>
+
+    <!-- NOW -->
+    <section class="section" id="now">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">// ACTIVE PROCESS</span>
+          <h2 class="section-title">Now</h2>
         </div>
-        <div class="glass-card now-card">
-          <h3 class="now-card-label">Current Focus</h3>
-          <p class="now-focus-text">Shipping the SeedCodes ecosystem — building personal AI tools, learning Unity
-            foundations, and creating systems that compound over time.</p>
+        <div class="now-grid">
+          <div class="glass-card now-card now-active reveal">
+            <div class="card-glow-line"></div>
+            <h3 class="card-label">Currently Building</h3>
+            <ul class="now-list" id="nowBuilding"></ul>
+          </div>
+          <div class="glass-card now-card reveal" data-delay="100">
+            <h3 class="card-label">Current Focus</h3>
+            <p class="now-focus">Shipping the SeedCodes ecosystem — building personal AI tools, learning Unity
+              foundations, and creating systems that compound over time.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Next Action -->
+    <div class="next-action">
+      <div class="container">
+        <div class="next-action-inner reveal">
+          <span class="pulse-dot pulse-amber"></span>
+          <span class="next-label">Next Action →</span>
+          <span class="next-text">Improve project dashboard layout and finalize Buddy-X core loop.</span>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- Next Action -->
-  <div class="next-action" id="nextAction">
-    <div class="container">
-      <div class="next-action-inner">
-        <span class="next-action-indicator"></span>
-        <span class="next-action-label">Next Action →</span>
-        <span class="next-action-text">Improve project dashboard layout and finalize Buddy-X core loop.</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Mission -->
-  <section class="section" id="mission">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">// DIRECTIVE</span>
-        <h2 class="section-title">Mission</h2>
-      </div>
-      <div class="glass-card mission-card">
-        <p class="mission-text">Build personal AI infrastructure and digital systems that amplify human capability. Ship
-          meaningful products. Think long-term, execute daily.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Ecosystem -->
-  <section class="section" id="ecosystem">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">// SYSTEM ARCHITECTURE</span>
-        <h2 class="section-title">Ecosystem</h2>
-      </div>
-      <div class="glass-card ecosystem-card" id="ecosystemTree"></div>
-    </div>
-  </section>
-
-  <!-- Projects -->
-  <section class="section" id="projects">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">// PROJECT DASHBOARD</span>
-        <h2 class="section-title">Projects</h2>
-      </div>
-      <div class="projects-grid" id="projectsGrid"></div>
-    </div>
-  </section>
-
-  <!-- Timeline -->
-  <section class="section" id="timeline">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">// EVOLUTION</span>
-        <h2 class="section-title">Timeline</h2>
-      </div>
-      <div class="timeline" id="timelineList"></div>
-    </div>
-  </section>
-
-  <!-- Terminal About -->
-  <section class="section" id="about">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">// SYSTEM OUTPUT</span>
-        <h2 class="section-title">About</h2>
-      </div>
-      <div class="terminal">
-        <div class="terminal-chrome">
-          <span class="term-dot term-red"></span>
-          <span class="term-dot term-yellow"></span>
-          <span class="term-dot term-green"></span>
-          <span class="terminal-file">profile.sh</span>
+    <!-- Mission -->
+    <section class="section" id="mission">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">// DIRECTIVE</span>
+          <h2 class="section-title">Mission</h2>
         </div>
-        <div class="terminal-body" id="terminalBody"></div>
+        <div class="glass-card mission-card reveal" data-delay="100">
+          <p class="mission-text">Build personal AI infrastructure and digital systems that amplify human capability.
+            Ship meaningful products. Think long-term, execute daily.</p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Build Log -->
-  <section class="section" id="buildlog">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">// SYSTEM LOG</span>
-        <h2 class="section-title">Build Log</h2>
+    <!-- Ecosystem -->
+    <section class="section" id="ecosystem">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">// SYSTEM ARCHITECTURE</span>
+          <h2 class="section-title">Ecosystem</h2>
+        </div>
+        <div class="glass-card eco-card reveal" data-delay="100" id="ecosystemTree"></div>
       </div>
-      <div class="glass-card buildlog-card">
-        <ul class="build-log" id="buildLog"></ul>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contact -->
-  <section class="section" id="contact">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">// CONNECT</span>
-        <h2 class="section-title">Contact</h2>
+    <!-- Projects -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">// PROJECT DASHBOARD</span>
+          <h2 class="section-title">Projects</h2>
+        </div>
+        <div class="projects-grid" id="projectsGrid"></div>
       </div>
-      <div class="contact-links" id="contactLinks"></div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <p>© 2026 SeedCodes. Engineered from scratch.</p>
-    </div>
-  </footer>
+    <!-- Timeline -->
+    <section class="section" id="timeline">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">// EVOLUTION</span>
+          <h2 class="section-title">Timeline</h2>
+        </div>
+        <div class="timeline" id="timelineList"></div>
+      </div>
+    </section>
+
+    <!-- About / Terminal -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">// SYSTEM OUTPUT</span>
+          <h2 class="section-title">About</h2>
+        </div>
+        <div class="terminal reveal" data-delay="100">
+          <div class="terminal-chrome">
+            <span class="t-dot t-red"></span>
+            <span class="t-dot t-yellow"></span>
+            <span class="t-dot t-green"></span>
+            <span class="terminal-file">profile.sh</span>
+          </div>
+          <div class="terminal-body" id="terminalBody"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Build Log -->
+    <section class="section" id="buildlog">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">// SYSTEM LOG</span>
+          <h2 class="section-title">Build Log</h2>
+        </div>
+        <div class="glass-card log-card reveal" data-delay="100">
+          <ul class="build-log" id="buildLog"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">// CONNECT</span>
+          <h2 class="section-title">Contact</h2>
+        </div>
+        <div class="contact-links" id="contactLinks"></div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p>© 2026 SeedCodes. Engineered from scratch.</p>
+      </div>
+    </footer>
+
+  </div><!-- /site-wrapper -->
 
   <script type="module" src="js/main.js"></script>
 </body>

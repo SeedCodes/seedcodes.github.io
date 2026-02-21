@@ -1,12 +1,12 @@
 // ============================================
-// DATA — Edit content here.
+// DATA
 // ============================================
 
 export const systemStatus = [
-  { label: 'STATUS', value: 'ACTIVE', dot: true },
+  { label: 'STATUS', value: 'ONLINE', dot: true },
   { label: 'MODE', value: 'BUILDING' },
-  { label: 'CURRENT FOCUS', value: 'EXECUTION' },
-  { label: 'LAST UPDATE', value: 'FEB 2026' },
+  { label: 'FOCUS', value: 'AI SYSTEMS' },
+  { label: 'UPTIME', value: '##UPTIME##', isUptime: true },
 ];
 
 export const nowBuilding = [
@@ -59,8 +59,8 @@ export const projects = [
 ];
 
 export const timelineEntries = [
-  { year: '2025', text: 'Learning & exploration — programming, AI fundamentals, game dev basics.' },
-  { year: '2026', text: 'Building systems — personal AI, automation pipelines, shipping projects.' },
+  { year: '2025', text: 'Learning & exploration — programming, AI fundamentals, game dev.' },
+  { year: '2026', text: 'Building systems — personal AI, automation, shipping projects.' },
   { year: 'Future', text: 'Expanding SeedCodes into a full product ecosystem.' },
 ];
 
@@ -69,7 +69,7 @@ export const terminalLines = [
   { type: 'kv', key: 'Role', value: 'Builder / Developer' },
   { type: 'kv', key: 'Focus', value: 'AI Systems, Automation, Game Development' },
   { type: 'kv', key: 'Stack', value: 'Python, JS, C#, Unity, n8n' },
-  { type: 'kv', key: 'Status', value: 'Online' },
+  { type: 'kv', key: 'Status', value: 'Active' },
   { type: 'cmd', text: 'ready.' },
 ];
 
@@ -78,6 +78,13 @@ export const buildLog = [
   { date: 'Feb 2026', text: 'Started Buddy-X AI core development.' },
   { date: 'Jan 2026', text: 'Began Unity foundations for Ascend prototype.' },
   { date: 'Dec 2025', text: 'Set up n8n automation experiments pipeline.' },
+];
+
+export const bootSequence = [
+  { text: 'initializing system...', delay: 0 },
+  { text: 'loading modules...', delay: 600 },
+  { text: 'syncing core processes...', delay: 1200 },
+  { text: 'SEEDCODES ONLINE', delay: 2000, highlight: true },
 ];
 
 export const contacts = [
