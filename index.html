@@ -1,28 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Simran — Builder of AI Systems & Future Tech</title>
-  <meta name="description" content="Personal headquarters of a developer and visionary building AI systems, automation tools, games, and future technology." />
+  <title>SeedCodes — Builder's Command Center</title>
+  <meta name="description"
+    content="Digital operating system for a builder working on AI systems, automation, and future technology projects." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="styles/main.css" />
 </head>
+
 <body>
 
   <!-- Navbar -->
   <nav class="navbar" id="navbar">
     <div class="nav-inner">
-      <a href="#" class="nav-logo">codex<span class="accent">.</span></a>
+      <a href="#" class="nav-logo">SeedCodes<span class="accent">.</span></a>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links" id="navLinks">
+        <li><a href="#now">Now</a></li>
         <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#vision">Vision</a></li>
+        <li><a href="#ecosystem">Ecosystem</a></li>
+        <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
@@ -31,57 +37,150 @@
   <!-- Hero -->
   <section class="hero" id="hero">
     <div class="container">
-      <p class="hero-tag">Developer · AI Builder · Visionary</p>
-      <h1 class="hero-title">Simran</h1>
+      <div class="hero-badge">Command Center</div>
+      <h1 class="hero-title">SeedCodes</h1>
       <p class="hero-subtitle">
-        Building intelligent systems, automating the mundane, and engineering the future — one project at a time.
+        Building AI systems and futuristic digital projects.
       </p>
-      <a href="#projects" class="btn btn-primary">Explore Work</a>
+      <a href="#projects" class="btn btn-primary">View Projects</a>
     </div>
   </section>
 
-  <!-- Projects -->
+  <!-- System Status Bar -->
+  <section class="status-bar" id="status">
+    <div class="container">
+      <div class="status-row" id="statusRow">
+        <!-- rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- NOW Section -->
+  <section class="section" id="now">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">// LIVE STATUS</span>
+        <h2 class="section-title">Now</h2>
+      </div>
+      <div class="now-grid">
+        <div class="now-card">
+          <h3 class="now-card-title">Currently Building</h3>
+          <ul class="now-list" id="nowBuilding">
+            <!-- rendered by JS -->
+          </ul>
+        </div>
+        <div class="now-card now-card-focus">
+          <h3 class="now-card-title">Current Focus</h3>
+          <p class="now-focus-text">Shipping the SeedCodes ecosystem — building personal AI tools, learning Unity
+            foundations, and creating systems that compound over time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Next Action -->
+  <section class="next-action-bar" id="nextAction">
+    <div class="container">
+      <div class="next-action-inner">
+        <span class="next-action-label">Next Action →</span>
+        <span class="next-action-text" id="nextActionText">Improve project dashboard layout and finalize Buddy-X core
+          loop.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission -->
+  <section class="section" id="mission">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">// PURPOSE</span>
+        <h2 class="section-title">Mission</h2>
+      </div>
+      <p class="mission-text">Build personal AI infrastructure and digital systems that amplify human capability. Ship
+        meaningful products. Think long-term, execute daily.</p>
+    </div>
+  </section>
+
+  <!-- Ecosystem Map -->
+  <section class="section section-alt" id="ecosystem">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">// ARCHITECTURE</span>
+        <h2 class="section-title">Ecosystem Map</h2>
+      </div>
+      <div class="ecosystem-tree" id="ecosystemTree">
+        <!-- rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Dashboard -->
   <section class="section" id="projects">
     <div class="container">
-      <h2 class="section-title">Projects</h2>
-      <p class="section-desc">A living portfolio of ideas, systems, and products — at various stages of development.</p>
+      <div class="section-header">
+        <span class="section-label">// DASHBOARD</span>
+        <h2 class="section-title">Projects</h2>
+      </div>
       <div class="projects-grid" id="projectsGrid">
         <!-- rendered by JS -->
       </div>
     </div>
   </section>
 
-  <!-- Skills -->
-  <section class="section section-alt" id="skills">
+  <!-- Timeline -->
+  <section class="section section-alt" id="timeline">
     <div class="container">
-      <h2 class="section-title">Tech Stack</h2>
-      <p class="section-desc">Core tools and technologies I work with daily.</p>
-      <div class="skills-grid" id="skillsGrid">
+      <div class="section-header">
+        <span class="section-label">// EVOLUTION</span>
+        <h2 class="section-title">Timeline</h2>
+      </div>
+      <div class="timeline" id="timelineList">
         <!-- rendered by JS -->
       </div>
     </div>
   </section>
 
-  <!-- Vision -->
-  <section class="section" id="vision">
+  <!-- Terminal About -->
+  <section class="section" id="about">
     <div class="container">
-      <div class="vision-block">
-        <h2 class="section-title">Vision</h2>
-        <p class="vision-text">
-          I don't just write code — I architect systems that think, adapt, and scale. My long-term mission is to build personal AI infrastructure that amplifies human capability: assistants that truly understand context, automation pipelines that eliminate friction, and digital products that solve real problems.
-        </p>
-        <p class="vision-text">
-          I believe the next decade belongs to independent builders who combine engineering depth with product instinct. That's the path I'm on — shipping meaningful technology, one system at a time.
-        </p>
+      <div class="section-header">
+        <span class="section-label">// SYSTEM OUTPUT</span>
+        <h2 class="section-title">About</h2>
+      </div>
+      <div class="terminal" id="terminal">
+        <div class="terminal-header">
+          <span class="terminal-dot dot-red"></span>
+          <span class="terminal-dot dot-yellow"></span>
+          <span class="terminal-dot dot-green"></span>
+          <span class="terminal-title">profile.sh</span>
+        </div>
+        <div class="terminal-body" id="terminalBody">
+          <!-- rendered by JS -->
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section class="section section-alt" id="contact">
+  <!-- Build Log -->
+  <section class="section section-alt" id="buildlog">
     <div class="container">
-      <h2 class="section-title">Get in Touch</h2>
-      <p class="section-desc">Open to collaborations, conversations, and ambitious ideas.</p>
+      <div class="section-header">
+        <span class="section-label">// CHANGELOG</span>
+        <h2 class="section-title">Build Log</h2>
+      </div>
+      <ul class="build-log" id="buildLog">
+        <!-- rendered by JS -->
+      </ul>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">// CONNECT</span>
+        <h2 class="section-title">Contact</h2>
+      </div>
       <div class="contact-links" id="contactLinks">
         <!-- rendered by JS -->
       </div>
@@ -91,10 +190,11 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2026 Simran. Built from scratch.</p>
+      <p>© 2026 SeedCodes. Built from scratch.</p>
     </div>
   </footer>
 
   <script type="module" src="js/main.js"></script>
 </body>
+
 </html>

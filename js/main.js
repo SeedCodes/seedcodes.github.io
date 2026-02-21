@@ -1,25 +1,62 @@
 // ============================================
-// MAIN – App Initialization
+// MAIN — App Initialization
 // ============================================
 
-import { projects, skills, contacts } from './data.js';
-import { renderProjectCard, renderSkillCategory, renderContactLink } from './components.js';
+import {
+    statusItems, nowBuilding, ecosystem, projects,
+    timelineEntries, terminalLines, buildLog, contacts
+} from './data.js';
 
-// --- Render sections ---
+import {
+    renderStatusItem, renderNowItem, renderEcosystem,
+    renderProjectCard, renderTimelineItem, renderTerminalLine,
+    renderBuildLogItem, renderContactLink
+} from './components.js';
+
 function init() {
-    // Projects
+    // --- Status Bar ---
+    const statusRow = document.getElementById('statusRow');
+    if (statusRow) {
+        statusRow.innerHTML = statusItems.map(renderStatusItem).join('');
+    }
+
+    // --- NOW: Currently Building ---
+    const nowList = document.getElementById('nowBuilding');
+    if (nowList) {
+        nowList.innerHTML = nowBuilding.map(renderNowItem).join('');
+    }
+
+    // --- Ecosystem ---
+    const ecoTree = document.getElementById('ecosystemTree');
+    if (ecoTree) {
+        ecoTree.innerHTML = renderEcosystem(ecosystem);
+    }
+
+    // --- Projects ---
     const projectsGrid = document.getElementById('projectsGrid');
     if (projectsGrid) {
         projectsGrid.innerHTML = projects.map(renderProjectCard).join('');
     }
 
-    // Skills
-    const skillsGrid = document.getElementById('skillsGrid');
-    if (skillsGrid) {
-        skillsGrid.innerHTML = skills.map(renderSkillCategory).join('');
+    // --- Timeline ---
+    const timelineList = document.getElementById('timelineList');
+    if (timelineList) {
+        timelineList.innerHTML = timelineEntries.map(renderTimelineItem).join('');
     }
 
-    // Contact
+    // --- Terminal About ---
+    const terminalBody = document.getElementById('terminalBody');
+    if (terminalBody) {
+        terminalBody.innerHTML = terminalLines.map(renderTerminalLine).join('');
+    }
+
+    // --- Build Log ---
+    const buildLogEl = document.getElementById('buildLog');
+    if (buildLogEl) {
+        buildLogEl.innerHTML = buildLog.map(renderBuildLogItem).join('');
+    }
+
+    // --- Contact ---
     const contactLinks = document.getElementById('contactLinks');
     if (contactLinks) {
         contactLinks.innerHTML = contacts.map(renderContactLink).join('');
@@ -34,7 +71,6 @@ function init() {
             navLinks.classList.toggle('open');
         });
 
-        // Close menu on link click
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('open');
@@ -55,21 +91,20 @@ function init() {
                     }
                 });
             },
-            { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+            { threshold: 0.1, rootMargin: '0px 0px -30px 0px' }
         );
 
         fadeEls.forEach(el => observer.observe(el));
     } else {
-        // Fallback: show everything
         fadeEls.forEach(el => el.classList.add('visible'));
     }
 
-    // --- Active nav link on scroll ---
-    const sections = document.querySelectorAll('.section');
+    // --- Active nav highlighting ---
+    const sections = document.querySelectorAll('.section, .hero');
     const navAnchors = document.querySelectorAll('.nav-links a');
 
     function updateActiveNav() {
-        const scrollPos = window.scrollY + 120;
+        const scrollPos = window.scrollY + 100;
 
         sections.forEach(section => {
             const top = section.offsetTop;
@@ -91,7 +126,6 @@ function init() {
     updateActiveNav();
 }
 
-// Run on DOM ready
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
 } else {
