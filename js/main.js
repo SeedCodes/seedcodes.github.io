@@ -80,7 +80,7 @@ class ParticleField {
 }
 
 // ============================================
-// BOOT SEQUENCE
+// BOOT SEQUENCE — letter-by-letter typing
 // ============================================
 function runBoot() {
     const overlay = document.getElementById('bootOverlay');
@@ -96,9 +96,14 @@ function runBoot() {
 
     let skipped = false;
 
+    // Persistent blinking cursor element
+    const cursor = document.createElement('span');
+    cursor.className = 'boot-cursor';
+
     function endBoot() {
         if (bootDone) return;
         bootDone = true;
+        cursor.remove();
         logo.classList.add('show');
         status.classList.add('show');
 
@@ -115,9 +120,10 @@ function runBoot() {
         endBoot();
     });
 
-    // Type boot lines
+    // Type each line letter-by-letter
     let lineIndex = 0;
-    function showNextLine() {
+
+    function typeLine() {
         if (skipped || bootDone) return;
         if (lineIndex >= bootSequence.length) {
             endBoot();
@@ -125,45 +131,51 @@ function runBoot() {
         }
 
         const line = bootSequence[lineIndex];
+        const isHighlight = line.highlight;
+
+        // Create line container
         const div = document.createElement('div');
         div.className = 'boot-line';
         div.style.animationDelay = '0s';
 
-        const isLast = line.highlight;
         const prompt = document.createElement('span');
         prompt.className = 'prompt';
         prompt.textContent = '> ';
         div.appendChild(prompt);
 
-        if (isLast) {
-            const ok = document.createElement('span');
-            ok.className = 'ok';
-            ok.textContent = line.text;
-            div.appendChild(ok);
-        } else {
-            div.appendChild(document.createTextNode(line.text));
-        }
+        // Text node that will be typed into
+        const textSpan = document.createElement('span');
+        if (isHighlight) textSpan.className = 'ok';
+        textSpan.textContent = '';
+        div.appendChild(textSpan);
 
-        // Add cursor to last visible line
-        const cursor = document.createElement('span');
-        cursor.className = 'boot-cursor';
+        // Attach cursor to this line
         div.appendChild(cursor);
-
-        // Remove cursor from previous line
-        const prevCursor = terminal.querySelector('.boot-cursor');
-        if (prevCursor) prevCursor.remove();
-
         terminal.appendChild(div);
-        lineIndex++;
 
-        const nextDelay = lineIndex < bootSequence.length
-            ? bootSequence[lineIndex].delay - line.delay
-            : 600;
+        // Type letter by letter
+        const text = line.text;
+        let charIdx = 0;
+        const charSpeed = isHighlight ? 40 : 30; // slightly slower for final line
 
-        setTimeout(showNextLine, nextDelay);
+        const interval = setInterval(() => {
+            if (skipped || bootDone) {
+                clearInterval(interval);
+                return;
+            }
+            charIdx++;
+            textSpan.textContent = text.slice(0, charIdx);
+            if (charIdx >= text.length) {
+                clearInterval(interval);
+                lineIndex++;
+                // Pause between lines, then type next
+                const pauseAfter = isHighlight ? 500 : 300;
+                setTimeout(typeLine, pauseAfter);
+            }
+        }, charSpeed);
     }
 
-    setTimeout(showNextLine, 300);
+    setTimeout(typeLine, 400);
 }
 
 // ============================================
