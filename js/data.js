@@ -33,6 +33,12 @@ export const projects = [
     status: 'active',
   },
   {
+    name: 'Gesture media control (Ubuntu)',
+    description: 'Controling any media just by simple hand gestures.',
+    stack: ['Python', 'CV'],
+    status: 'active',
+  },
+  {
     name: 'Buddy-X',
     description: 'Personal AI assistant with context awareness and task orchestration.',
     stack: ['Python', 'LLM', 'Automation'],
