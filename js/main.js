@@ -89,6 +89,13 @@ function runBoot() {
     const status = document.getElementById('bootStatus');
     const skipBtn = document.getElementById('bootSkip');
 
+    // If boot already seen this session, skip instantly
+    if (sessionStorage.getItem('bootSeen')) {
+        overlay.remove();
+        document.getElementById('siteWrapper').classList.add('active');
+        return;
+    }
+
     // Boot particles
     const bootCanvas = document.getElementById('bootParticles');
     const bootParticles = new ParticleField(bootCanvas, { count: 30, maxOpacity: 0.2, speed: 0.2 });
@@ -103,6 +110,7 @@ function runBoot() {
     function endBoot() {
         if (bootDone) return;
         bootDone = true;
+        sessionStorage.setItem('bootSeen', '1');
         cursor.remove();
         logo.classList.add('show');
         status.classList.add('show');
@@ -406,8 +414,38 @@ function init() {
     // Parallax cards
     initParallax();
 
+    // Page transitions
+    initPageTransitions();
+
     // Navigation
     initNav();
+}
+
+// ============================================
+// PAGE TRANSITIONS
+// ============================================
+function initPageTransitions() {
+    const overlay = document.getElementById('pageTransition');
+    if (!overlay) return;
+
+    // Clear overlay when page is restored via back/forward cache
+    window.addEventListener('pageshow', () => {
+        overlay.classList.remove('active');
+    });
+
+    document.addEventListener('click', (e) => {
+        const link = e.target.closest('[data-transition]');
+        if (!link) return;
+
+        e.preventDefault();
+        const href = link.getAttribute('href');
+        if (!href || href === '#') return;
+
+        overlay.classList.add('active');
+        setTimeout(() => {
+            window.location.href = href;
+        }, 400);
+    });
 }
 
 if (document.readyState === 'loading') {

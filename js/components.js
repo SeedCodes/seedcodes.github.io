@@ -25,8 +25,10 @@ export function renderProjectCard(project, index) {
   const label = project.status.charAt(0).toUpperCase() + project.status.slice(1);
   const tags = project.stack.map(t => `<span class="stack-tag">${t}</span>`).join('');
   const delay = index * 80;
+  const href = `projects/?p=${project.slug}`;
+
   return `
-    <article class="project-card reveal" data-delay="${delay}" data-parallax>
+    <a href="${href}" class="project-card project-card--link reveal" data-delay="${delay}" data-parallax data-transition>
       <div class="project-card-header">
         <h3 class="project-name">${project.name}</h3>
         <span class="status-dot dot-${project.status}" title="${label}"></span>
@@ -36,7 +38,8 @@ export function renderProjectCard(project, index) {
         <div class="project-stack">${tags}</div>
         <span class="project-status-text">${label}</span>
       </div>
-    </article>`;
+      <span class="card-arrow">→</span>
+    </a>`;
 }
 
 export function renderTimelineItem(entry, index) {
