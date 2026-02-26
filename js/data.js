@@ -48,7 +48,9 @@ export const projects = [
       'Each day, check off completed goals and optionally write a journal entry.',
       'Watch your streaks build, track your success rate, and complete the arc.',
     ],
-    github: 'https://github.com/SeedCodes/Products/releases/tag/v1.0WinterArc',
+    actions: [
+      { label: 'Download', href: 'https://github.com/SeedCodes/Products/releases/tag/v1.0WinterArc', style: 'primary' },
+    ],
   },
   {
     name: 'Gesture Media Control',
@@ -72,7 +74,9 @@ export const projects = [
       'Hand landmarks are analyzed to classify gestures (open palm, fist, swipe, pinch).',
       'Recognized gestures trigger system media commands via D-Bus.',
     ],
-    github: 'https://github.com/SeedCodes/gesture-control',
+    actions: [
+      { label: 'View on GitHub', href: 'https://github.com/SeedCodes/gesture-control', style: 'primary' },
+    ],
   },
   {
     name: 'Buddy-X',
@@ -94,7 +98,9 @@ export const projects = [
       'Buddy-X breaks it down, plans the approach, and gathers context.',
       'Executes tasks, automates flows, and reports back with results.',
     ],
-    github: 'https://github.com/SeedCodes',
+    actions: [
+      //{ label: 'View on GitHub', href: 'https://github.com/SeedCodes', style: 'primary' },
+    ],
   },
   {
     name: 'Ascend – Path of Elements',
@@ -116,7 +122,9 @@ export const projects = [
       'Fight through elemental encounters, learn combos, and level up.',
       'Unlock new elements and evolve your combat style.',
     ],
-    github: 'https://github.com/SeedCodes',
+    actions: [
+      // { label: 'View on GitHub', href: 'https://github.com/SeedCodes', style: 'primary' },
+    ],
   },
   {
     name: 'DreamForge',
@@ -137,7 +145,9 @@ export const projects = [
       'Create design assets, templates, and guidelines.',
       'Distribute to team members and iterate on feedback.',
     ],
-    github: 'https://github.com/SeedCodes',
+    actions: [
+      // { label: 'View on GitHub', href: 'https://github.com/SeedCodes', style: 'secondary' },
+    ],
   },
   {
     name: 'SeedCodes Vision',
@@ -159,7 +169,9 @@ export const projects = [
       'Design the product, build an MVP, and validate with users.',
       'Launch, gather feedback, and iterate toward product-market fit.',
     ],
-    github: 'https://github.com/SeedCodes',
+    actions: [
+      { label: 'Learn More', href: 'https://github.com/SeedCodes', style: 'secondary' },
+    ],
   },
   {
     name: 'Automation Experiments',
@@ -181,7 +193,9 @@ export const projects = [
       'Design an automation pipeline using n8n or custom scripts.',
       'Deploy, monitor, and refine the automation over time.',
     ],
-    github: 'https://github.com/SeedCodes',
+    actions: [
+      // { label: 'View on GitHub', href: 'https://github.com/SeedCodes', style: 'primary' },
+    ],
   },
 ];
 

@@ -44,21 +44,19 @@
     </div>
   </footer>
 
-  <script src="../js/data.js" type="module" id="dataLoader"></script>
   <script type="module">
     import { projects } from '../js/data.js';
     window.__projects = projects;
     window.dispatchEvent(new Event('dataReady'));
   </script>
   <script>
-    // Works with both module and non-module approaches
     function renderProject() {
-      const projects = window.__projects;
+      var projects = window.__projects;
       if (!projects) return;
 
-      const slug = new URLSearchParams(window.location.search).get('p');
-      const project = projects.find(p => p.slug === slug);
-      const container = document.getElementById('projectContent');
+      var slug = new URLSearchParams(window.location.search).get('p');
+      var project = projects.find(function (p) { return p.slug === slug; });
+      var container = document.getElementById('projectContent');
 
       if (!project) {
         document.title = 'Module Not Found — SeedCodes';
@@ -67,24 +65,34 @@
       }
 
       document.title = project.name + ' — SeedCodes';
-      const descMeta = document.querySelector('meta[name="description"]');
+      var descMeta = document.querySelector('meta[name="description"]');
       if (descMeta) descMeta.content = project.tagline || project.description;
 
-      const statusMap = { active: 'ACTIVE MODULE', building: 'IN DEVELOPMENT', paused: 'PAUSED', research: 'RESEARCH PHASE' };
+      var statusMap = { active: 'ACTIVE MODULE', building: 'IN DEVELOPMENT', paused: 'PAUSED', research: 'RESEARCH PHASE' };
 
-      const featuresHTML = (project.features || []).map((f, i) =>
-        '<div class="feature-item reveal" data-delay="' + (i * 60) + '"><div class="feature-icon">' + f.icon + '</div><div class="feature-name">' + f.name + '</div><div class="feature-desc">' + f.desc + '</div></div>'
-      ).join('');
+      var featuresHTML = (project.features || []).map(function (f, i) {
+        return '<div class="feature-item reveal" data-delay="' + (i * 60) + '"><div class="feature-icon">' + f.icon + '</div><div class="feature-name">' + f.name + '</div><div class="feature-desc">' + f.desc + '</div></div>';
+      }).join('');
 
-      const techHTML = (project.techDetail || project.stack).map(t =>
-        '<span class="tech-badge">' + t + '</span>'
-      ).join('');
+      var techHTML = (project.techDetail || project.stack).map(function (t) {
+        return '<span class="tech-badge">' + t + '</span>';
+      }).join('');
 
-      const stepsHTML = (project.steps || []).map((s, i) =>
-        '<div class="step reveal" data-delay="' + (i * 80) + '"><span class="step-num">' + String(i + 1).padStart(2, '0') + '</span><span class="step-text">' + s + '</span></div>'
-      ).join('');
+      var stepsHTML = (project.steps || []).map(function (s, i) {
+        return '<div class="step reveal" data-delay="' + (i * 80) + '"><span class="step-num">' + String(i + 1).padStart(2, '0') + '</span><span class="step-text">' + s + '</span></div>';
+      }).join('');
 
-      var ghIcon = '<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>';
+      // Custom actions — each project controls its own buttons
+      var actionsHTML = (project.actions || []).map(function (a) {
+        return '<a href="' + a.href + '" target="_blank" rel="noopener noreferrer" class="btn-action btn-action--' + (a.style || 'secondary') + '">' + a.label + '</a>';
+      }).join('');
+
+      // Section title adapts to first action label
+      var actionTitle = 'Get Involved';
+      if (project.actions && project.actions.length) {
+        var first = project.actions[0].label;
+        if (first === 'Download' || first === 'Releases') actionTitle = first;
+      }
 
       container.innerHTML =
         '<section class="project-hero">' +
@@ -128,14 +136,12 @@
         '<div class="media-area"><span class="media-placeholder">[ Screenshots & demo coming soon ]</span></div>' +
         '</section>' +
 
-        '<section class="module">' +
-        '<span class="module-label">// ACTIONS</span>' +
-        '<h2 class="module-title">Get Involved</h2>' +
-        '<div class="action-group">' +
-        (project.github ? '<a href="' + project.github + '" target="_blank" rel="noopener noreferrer" class="btn-action btn-action--primary">' + ghIcon + ' View on GitHub</a>' : '') +
-        '<a href="../#contact" class="btn-action btn-action--secondary">Contact for Demo</a>' +
-        '</div>' +
-        '</section>';
+        (actionsHTML ?
+          '<section class="module">' +
+          '<span class="module-label">// ACTIONS</span>' +
+          '<h2 class="module-title">' + actionTitle + '</h2>' +
+          '<div class="action-group">' + actionsHTML + '</div>' +
+          '</section>' : '');
 
       // Scroll reveal
       var els = container.querySelectorAll('.reveal');
@@ -155,7 +161,6 @@
       }
     }
 
-    // Try to render immediately if data is already available
     if (window.__projects) {
       renderProject();
     } else {
