@@ -40,7 +40,7 @@
 
   <footer class="project-footer-bar">
     <div class="container">
-      <p>© 2026 SeedCodes. Engineered from scratch.</p>
+      <p>&copy; 2026 SeedCodes. Engineered from scratch.</p>
     </div>
   </footer>
 
@@ -59,19 +59,22 @@
       var container = document.getElementById('projectContent');
 
       if (!project) {
-        document.title = 'Module Not Found — SeedCodes';
+        document.title = 'Module Not Found \u2014 SeedCodes';
         container.innerHTML = '<section class="project-hero"><h1>Module Not Found</h1><p class="project-tagline">This project module doesn\'t exist yet.</p></section>';
         return;
       }
 
-      document.title = project.name + ' — SeedCodes';
+      document.title = project.name + ' \u2014 SeedCodes';
       var descMeta = document.querySelector('meta[name="description"]');
       if (descMeta) descMeta.content = project.tagline || project.description;
 
       var statusMap = { active: 'ACTIVE MODULE', building: 'IN DEVELOPMENT', paused: 'PAUSED', research: 'RESEARCH PHASE' };
 
       var featuresHTML = (project.features || []).map(function (f, i) {
-        return '<div class="feature-item reveal" data-delay="' + (i * 60) + '"><div class="feature-icon">' + f.icon + '</div><div class="feature-name">' + f.name + '</div><div class="feature-desc">' + f.desc + '</div></div>';
+        return '<div class="feature-item reveal" data-delay="' + (i * 60) + '">' +
+          '<div class="feature-icon">' + f.icon + '</div>' +
+          '<div class="feature-name">' + f.name + '</div>' +
+          '<div class="feature-desc">' + f.desc + '</div></div>';
       }).join('');
 
       var techHTML = (project.techDetail || project.stack).map(function (t) {
@@ -79,15 +82,42 @@
       }).join('');
 
       var stepsHTML = (project.steps || []).map(function (s, i) {
-        return '<div class="step reveal" data-delay="' + (i * 80) + '"><span class="step-num">' + String(i + 1).padStart(2, '0') + '</span><span class="step-text">' + s + '</span></div>';
+        return '<div class="step reveal" data-delay="' + (i * 80) + '">' +
+          '<span class="step-num">' + String(i + 1).padStart(2, '0') + '</span>' +
+          '<span class="step-text">' + s + '</span></div>';
       }).join('');
 
-      // Custom actions — each project controls its own buttons
-      var actionsHTML = (project.actions || []).map(function (a) {
+      // Media carousel
+      var mediaItems = (project.media || []).filter(function (m) { return m.src; });
+      var mediaContent;
+      if (mediaItems.length) {
+        var slides = mediaItems.map(function (m) {
+          return '<div class="media-slide"><img src="../' + m.src + '" alt="' + (m.alt || '') + '" loading="lazy" /></div>';
+        }).join('');
+
+        var dots = mediaItems.map(function (_, i) {
+          return '<button class="media-dot' + (i === 0 ? ' active' : '') + '" data-index="' + i + '"></button>';
+        }).join('');
+
+        var prevArrow = '<button class="media-arrow media-arrow--prev" id="mediaPrev">' +
+          '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/></svg></button>';
+        var nextArrow = '<button class="media-arrow media-arrow--next" id="mediaNext">' +
+          '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></button>';
+
+        mediaContent = '<div class="media-carousel" id="mediaCarousel">' +
+          '<div class="media-track" id="mediaTrack">' + slides + '</div>' +
+          (mediaItems.length > 1 ? prevArrow + nextArrow : '') +
+          '</div>' +
+          (mediaItems.length > 1 ? '<div class="media-dots" id="mediaDots">' + dots + '</div>' : '');
+      } else {
+        mediaContent = '<div class="media-area"><span class="media-placeholder">[ Screenshots &amp; demo coming soon ]</span></div>';
+      }
+
+      // Custom action buttons
+      var actionsHTML = (project.actions || []).filter(function (a) { return a.href; }).map(function (a) {
         return '<a href="' + a.href + '" target="_blank" rel="noopener noreferrer" class="btn-action btn-action--' + (a.style || 'secondary') + '">' + a.label + '</a>';
       }).join('');
 
-      // Section title adapts to first action label
       var actionTitle = 'Get Involved';
       if (project.actions && project.actions.length) {
         var first = project.actions[0].label;
@@ -133,7 +163,7 @@
         '<section class="module">' +
         '<span class="module-label">// PREVIEW</span>' +
         '<h2 class="module-title">Media</h2>' +
-        '<div class="media-area"><span class="media-placeholder">[ Screenshots & demo coming soon ]</span></div>' +
+        mediaContent +
         '</section>' +
 
         (actionsHTML ?
@@ -142,6 +172,34 @@
           '<h2 class="module-title">' + actionTitle + '</h2>' +
           '<div class="action-group">' + actionsHTML + '</div>' +
           '</section>' : '');
+
+      // Init carousel
+      if (mediaItems.length > 1) {
+        var current = 0;
+        var total = mediaItems.length;
+        var track = document.getElementById('mediaTrack');
+        var dots = document.querySelectorAll('.media-dot');
+        var prev = document.getElementById('mediaPrev');
+        var next = document.getElementById('mediaNext');
+
+        function goTo(idx) {
+          if (idx < 0) idx = total - 1;
+          if (idx >= total) idx = 0;
+          current = idx;
+          track.style.transform = 'translateX(-' + (current * 100) + '%)';
+          dots.forEach(function (d, i) {
+            d.classList.toggle('active', i === current);
+          });
+        }
+
+        prev.addEventListener('click', function () { goTo(current - 1); });
+        next.addEventListener('click', function () { goTo(current + 1); });
+        dots.forEach(function (d) {
+          d.addEventListener('click', function () {
+            goTo(parseInt(d.dataset.index, 10));
+          });
+        });
+      }
 
       // Scroll reveal
       var els = container.querySelectorAll('.reveal');
