@@ -48,7 +48,7 @@ export const projects = [
       'Each day, check off completed goals and optionally write a journal entry.',
       'Watch your streaks build, track your success rate, and complete the arc.',
     ],
-    github: 'https://github.com/SeedCodes',
+    github: 'https://github.com/SeedCodes/Products/releases/tag/v1.0WinterArc',
   },
   {
     name: 'Gesture Media Control',
