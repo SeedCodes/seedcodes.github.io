@@ -72,7 +72,7 @@ export const projects = [
       'Hand landmarks are analyzed to classify gestures (open palm, fist, swipe, pinch).',
       'Recognized gestures trigger system media commands via D-Bus.',
     ],
-    github: 'https://github.com/SeedCodes',
+    github: 'https://github.com/SeedCodes/gesture-control',
   },
   {
     name: 'Buddy-X',
