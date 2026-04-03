@@ -118,8 +118,8 @@
         return '<a href="' + a.href + '" target="_blank" rel="noopener noreferrer" class="btn-action btn-action--' + (a.style || 'secondary') + '">' + a.label + '</a>';
       }).join('');
 
-      var actionTitle = 'Get Involved';
-      if (project.actions && project.actions.length) {
+      var actionTitle = project.actionTitle || 'Get Involved';
+      if (!project.actionTitle && project.actions && project.actions.length) {
         var first = project.actions[0].label;
         if (first === 'Download' || first === 'Releases') actionTitle = first;
       }

@@ -233,8 +233,9 @@ export const projects = [
        { src: 'assets/projects/complai/complai.png', alt: 'Complai' },
     ],
     actions: [
-      { label: 'Website', href: 'https://complaisoc.vercel.app', style: 'primary' },
+      { label: 'Official Website', href: 'https://complaisoc.vercel.app', style: 'primary' },
     ],
+    actionTitle: 'Official Website',
   },
 ];
 
