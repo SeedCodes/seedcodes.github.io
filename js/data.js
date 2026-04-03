@@ -209,6 +209,31 @@ export const projects = [
       // { label: 'View on GitHub', href: 'https://github.com/SeedCodes', style: 'primary' },
     ],
   },
+  {
+    name: 'Complai',
+    slug: 'complaisoc',
+    description: 'A SOC 2 tool for Small SaaS companies.',
+    status: 'active',
+    tagline: 'A SOC 2 compliance tool for small SaaS companies.',
+    overview: 'Complai is designed to help small SaaS companies navigate the complexities of SOC 2 compliance. It provides a streamlined approach to managing compliance requirements, ensuring that your organization meets the necessary standards for security and privacy.',
+    features: [
+      { icon: '🛡️', name: '24/7 Support', desc: 'Availability of support around the clock.' },
+      { icon: '📑', name: 'Full SOC 2 Compliance', desc: 'This includes all 115 controls and Policies for you company.' },
+      { icon: '🧩', name: 'Audit Q&A', desc: 'AI-powered audit question and answer system.' },
+      { icon: '⚙️', name: 'AI Automated', desc: 'AI will write your all policies for your company.' },
+    ],
+    steps: [
+      'Login with Google Account.',
+      'Go to company setup and setup your company information.',
+      'Generate all scoped policies and controls specifically for your company.',
+    ],
+    media: [
+      // { src: 'assets/projects/complai/complai.png', alt: 'Complai' },
+    ],
+    actions: [
+      //{ label: 'Website', href: 'https://complaisoc.vercel.app', style: 'primary' },
+    ],
+  },
 ];
 
 export const timelineEntries = [
