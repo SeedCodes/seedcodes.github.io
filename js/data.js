@@ -213,6 +213,7 @@ export const projects = [
     name: 'Complai',
     slug: 'complaisoc',
     description: 'A SOC 2 tool for Small SaaS companies.',
+    stack: ['React', 'Node.js', 'Firebase'],
     status: 'active',
     tagline: 'A SOC 2 compliance tool for small SaaS companies.',
     overview: 'Complai is designed to help small SaaS companies navigate the complexities of SOC 2 compliance. It provides a streamlined approach to managing compliance requirements, ensuring that your organization meets the necessary standards for security and privacy.',
@@ -222,6 +223,7 @@ export const projects = [
       { icon: '🧩', name: 'Audit Q&A', desc: 'AI-powered audit question and answer system.' },
       { icon: '⚙️', name: 'AI Automated', desc: 'AI will write your all policies for your company.' },
     ],
+    techDetail: ['React', 'Node.js', 'Firebase', 'Google OAuth', 'Compliance APIs'],
     steps: [
       'Login with Google Account.',
       'Go to company setup and setup your company information.',
