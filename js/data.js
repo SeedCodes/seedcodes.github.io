@@ -230,10 +230,10 @@ export const projects = [
       'Generate all scoped policies and controls specifically for your company.',
     ],
     media: [
-      // { src: 'assets/projects/complai/complai.png', alt: 'Complai' },
+       { src: 'assets/projects/complai/complai.png', alt: 'Complai' },
     ],
     actions: [
-      //{ label: 'Website', href: 'https://complaisoc.vercel.app', style: 'primary' },
+      { label: 'Website', href: 'https://complaisoc.vercel.app', style: 'primary' },
     ],
   },
 ];
